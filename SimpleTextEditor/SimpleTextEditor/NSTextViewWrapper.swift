@@ -30,6 +30,7 @@ struct NSTextViewWrapper: NSViewRepresentable {
     }
 
     func updateNSView(_ scrollView: NSScrollView, context: Context) {
+        context.coordinator.parent = self
         let textView = scrollView.documentView as! NSTextView
         // Guard against unnecessary resets that would move the cursor.
         if textView.string != text {
