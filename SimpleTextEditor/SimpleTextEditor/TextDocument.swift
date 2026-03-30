@@ -32,6 +32,6 @@ struct TextDocument: FileDocument {
 
     /// Encodes text as a UTF-8 regular file wrapper.
     static func encode(text: String) -> FileWrapper {
-        FileWrapper(regularFileWithContents: text.data(using: .utf8)!)
+        FileWrapper(regularFileWithContents: Data(text.utf8))
     }
 }

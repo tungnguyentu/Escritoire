@@ -27,13 +27,17 @@ final class TextDocumentTests: XCTestCase {
         let badData = Data([0xC3, 0x28])
         let wrapper = FileWrapper(regularFileWithContents: badData)
 
-        XCTAssertThrowsError(try TextDocument.decode(fileWrapper: wrapper))
+        XCTAssertThrowsError(try TextDocument.decode(fileWrapper: wrapper)) { error in
+            XCTAssertEqual((error as? CocoaError)?.code, .fileReadCorruptFile)
+        }
     }
 
     func test_decode_throwsForDirectoryWrapper() {
         let wrapper = FileWrapper(directoryWithFileWrappers: [:])
 
-        XCTAssertThrowsError(try TextDocument.decode(fileWrapper: wrapper))
+        XCTAssertThrowsError(try TextDocument.decode(fileWrapper: wrapper)) { error in
+            XCTAssertEqual((error as? CocoaError)?.code, .fileReadCorruptFile)
+        }
     }
 
     func test_decode_handlesEmptyData() throws {
