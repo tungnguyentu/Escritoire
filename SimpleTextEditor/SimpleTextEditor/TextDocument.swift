@@ -2,7 +2,7 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 struct TextDocument: FileDocument {
-    var text: String = ""
+    var text: String
 
     static var readableContentTypes: [UTType] { [.plainText] }
 
@@ -11,10 +11,27 @@ struct TextDocument: FileDocument {
     }
 
     init(configuration: ReadConfiguration) throws {
-        text = "" // stub: real UTF-8 decode added in Task 2
+        text = try TextDocument.decode(fileWrapper: configuration.file)
     }
 
     func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
-        FileWrapper(regularFileWithContents: Data()) // stub: real UTF-8 encode added in Task 2
+        TextDocument.encode(text: text)
+    }
+
+    // MARK: - Testable helpers
+
+    /// Decodes UTF-8 text from a file wrapper. Throws `CocoaError(.fileReadCorruptFile)` on failure.
+    static func decode(fileWrapper: FileWrapper) throws -> String {
+        guard let data = fileWrapper.regularFileContents,
+              let string = String(data: data, encoding: .utf8)
+        else {
+            throw CocoaError(.fileReadCorruptFile)
+        }
+        return string
+    }
+
+    /// Encodes text as a UTF-8 regular file wrapper.
+    static func encode(text: String) -> FileWrapper {
+        FileWrapper(regularFileWithContents: text.data(using: .utf8)!)
     }
 }
