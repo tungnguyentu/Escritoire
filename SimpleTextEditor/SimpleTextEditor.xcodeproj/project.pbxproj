@@ -1,0 +1,423 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AABB0000000000000000AAD0 /* SimpleTextEditorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB0000000000000000AAC0 /* SimpleTextEditorApp.swift */; };
+		AABB0000000000000000AAD1 /* TextDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB0000000000000000AAC1 /* TextDocument.swift */; };
+		AABB0000000000000000AAD2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB0000000000000000AAC2 /* ContentView.swift */; };
+		AABB0000000000000000AAD3 /* NSTextViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB0000000000000000AAC3 /* NSTextViewWrapper.swift */; };
+		AABB0000000000000000AAD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AABB0000000000000000AAC5 /* Assets.xcassets */; };
+		AABB0000000000000000AAD5 /* SimpleTextEditorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB0000000000000000AAC9 /* SimpleTextEditorTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AABB0000000000000000AAE0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AABB0000000000000000AAAA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AABB0000000000000000AAAD;
+			remoteInfo = SimpleTextEditor;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AABB0000000000000000AAC0 /* SimpleTextEditorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTextEditorApp.swift; sourceTree = "<group>"; };
+		AABB0000000000000000AAC1 /* TextDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDocument.swift; sourceTree = "<group>"; };
+		AABB0000000000000000AAC2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AABB0000000000000000AAC3 /* NSTextViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTextViewWrapper.swift; sourceTree = "<group>"; };
+		AABB0000000000000000AAC4 /* SimpleTextEditor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SimpleTextEditor.entitlements; sourceTree = "<group>"; };
+		AABB0000000000000000AAC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AABB0000000000000000AAC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AABB0000000000000000AAC7 /* SimpleTextEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleTextEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AABB0000000000000000AAC8 /* SimpleTextEditorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleTextEditorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AABB0000000000000000AAC9 /* SimpleTextEditorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTextEditorTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AABB0000000000000000AABA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AABB0000000000000000AABC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AABB0000000000000000AAAB /* root */ = {
+			isa = PBXGroup;
+			children = (
+				AABB0000000000000000AAF0 /* SimpleTextEditor */,
+				AABB0000000000000000AAF1 /* SimpleTextEditorTests */,
+				AABB0000000000000000AAAC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AABB0000000000000000AAAC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AABB0000000000000000AAC7 /* SimpleTextEditor.app */,
+				AABB0000000000000000AAC8 /* SimpleTextEditorTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AABB0000000000000000AAF0 /* SimpleTextEditor */ = {
+			isa = PBXGroup;
+			children = (
+				AABB0000000000000000AAC0 /* SimpleTextEditorApp.swift */,
+				AABB0000000000000000AAC1 /* TextDocument.swift */,
+				AABB0000000000000000AAC2 /* ContentView.swift */,
+				AABB0000000000000000AAC3 /* NSTextViewWrapper.swift */,
+				AABB0000000000000000AAC4 /* SimpleTextEditor.entitlements */,
+				AABB0000000000000000AAC5 /* Assets.xcassets */,
+				AABB0000000000000000AAC6 /* Info.plist */,
+			);
+			path = SimpleTextEditor;
+			sourceTree = "<group>";
+		};
+		AABB0000000000000000AAF1 /* SimpleTextEditorTests */ = {
+			isa = PBXGroup;
+			children = (
+				AABB0000000000000000AAC9 /* SimpleTextEditorTests.swift */,
+			);
+			path = SimpleTextEditorTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AABB0000000000000000AAAD /* SimpleTextEditor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AABB0000000000000000AAB0 /* Build configuration list for PBXNativeTarget "SimpleTextEditor" */;
+			buildPhases = (
+				AABB0000000000000000AAB8 /* Sources */,
+				AABB0000000000000000AABA /* Frameworks */,
+				AABB0000000000000000AAB9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SimpleTextEditor;
+			productName = SimpleTextEditor;
+			productReference = AABB0000000000000000AAC7 /* SimpleTextEditor.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AABB0000000000000000AAAE /* SimpleTextEditorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AABB0000000000000000AAB1 /* Build configuration list for PBXNativeTarget "SimpleTextEditorTests" */;
+			buildPhases = (
+				AABB0000000000000000AABB /* Sources */,
+				AABB0000000000000000AABC /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AABB0000000000000000AAE1 /* PBXTargetDependency */,
+			);
+			name = SimpleTextEditorTests;
+			productName = SimpleTextEditorTests;
+			productReference = AABB0000000000000000AAC8 /* SimpleTextEditorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AABB0000000000000000AAAA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					AABB0000000000000000AAAD = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					AABB0000000000000000AAAE = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = AABB0000000000000000AAAD;
+					};
+				};
+			};
+			buildConfigurationList = AABB0000000000000000AAAF /* Build configuration list for PBXProject "SimpleTextEditor" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AABB0000000000000000AAAB;
+			productRefGroup = AABB0000000000000000AAAC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AABB0000000000000000AAAD /* SimpleTextEditor */,
+				AABB0000000000000000AAAE /* SimpleTextEditorTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AABB0000000000000000AAB9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AABB0000000000000000AAD4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AABB0000000000000000AAB8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AABB0000000000000000AAD0 /* SimpleTextEditorApp.swift in Sources */,
+				AABB0000000000000000AAD1 /* TextDocument.swift in Sources */,
+				AABB0000000000000000AAD2 /* ContentView.swift in Sources */,
+				AABB0000000000000000AAD3 /* NSTextViewWrapper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AABB0000000000000000AABB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AABB0000000000000000AAD5 /* SimpleTextEditorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AABB0000000000000000AAE1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AABB0000000000000000AAAD /* SimpleTextEditor */;
+			targetProxy = AABB0000000000000000AAE0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		AABB0000000000000000AAB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AABB0000000000000000AAB3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		AABB0000000000000000AAB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SimpleTextEditor/SimpleTextEditor.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = SimpleTextEditor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.SimpleTextEditor";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		AABB0000000000000000AAB5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SimpleTextEditor/SimpleTextEditor.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = SimpleTextEditor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.SimpleTextEditor";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		AABB0000000000000000AAB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.SimpleTextEditorTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimpleTextEditor.app/Contents/MacOS/SimpleTextEditor";
+			};
+			name = Debug;
+		};
+		AABB0000000000000000AAB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.SimpleTextEditorTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimpleTextEditor.app/Contents/MacOS/SimpleTextEditor";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AABB0000000000000000AAAF /* Build configuration list for PBXProject "SimpleTextEditor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AABB0000000000000000AAB2 /* Debug */,
+				AABB0000000000000000AAB3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AABB0000000000000000AAB0 /* Build configuration list for PBXNativeTarget "SimpleTextEditor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AABB0000000000000000AAB4 /* Debug */,
+				AABB0000000000000000AAB5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AABB0000000000000000AAB1 /* Build configuration list for PBXNativeTarget "SimpleTextEditorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AABB0000000000000000AAB6 /* Debug */,
+				AABB0000000000000000AAB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AABB0000000000000000AAAA /* Project object */;
+}
