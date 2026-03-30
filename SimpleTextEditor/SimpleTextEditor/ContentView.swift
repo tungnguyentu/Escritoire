@@ -8,3 +8,8 @@ struct ContentView: View {
             .frame(minWidth: 500, minHeight: 400)
     }
 }
+
+// MARK: - Preview
+#Preview {
+    ContentView(document: .constant(TextDocument(text: "Preview text here.\nLine two.")))
+}
