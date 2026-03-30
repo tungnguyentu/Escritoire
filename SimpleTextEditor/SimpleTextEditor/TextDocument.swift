@@ -11,10 +11,10 @@ struct TextDocument: FileDocument {
     }
 
     init(configuration: ReadConfiguration) throws {
-        text = ""
+        text = "" // stub: real UTF-8 decode added in Task 2
     }
 
     func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
-        FileWrapper(regularFileWithContents: Data())
+        FileWrapper(regularFileWithContents: Data()) // stub: real UTF-8 encode added in Task 2
     }
 }
