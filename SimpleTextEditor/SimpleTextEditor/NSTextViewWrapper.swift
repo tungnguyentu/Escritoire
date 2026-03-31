@@ -22,7 +22,7 @@ struct NSTextViewWrapper: NSViewRepresentable {
         textView.isAutomaticQuoteSubstitutionEnabled = false // keep straight quotes
         textView.isAutomaticDashSubstitutionEnabled = false  // keep double dashes
         textView.font = NSFont.monospacedSystemFont(ofSize: 15, weight: .regular)
-        textView.textContainerInset = NSSize(width: 12, height: 14)
+        textView.textContainerInset = NSSize(width: 6, height: 12)
         textView.delegate = context.coordinator
 
         // Escritoire warm dark theme

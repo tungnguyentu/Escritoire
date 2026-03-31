@@ -6,7 +6,7 @@ final class LineNumberRulerView: NSRulerView {
     init(textView: NSTextView, scrollView: NSScrollView) {
         self.textView = textView
         super.init(scrollView: scrollView, orientation: .verticalRuler)
-        ruleThickness = 40
+        ruleThickness = 36
         textView.postsFrameChangedNotifications = true
         NotificationCenter.default.addObserver(
             self, selector: #selector(invalidate),
@@ -24,8 +24,7 @@ final class LineNumberRulerView: NSRulerView {
 
     @objc private func invalidate() { needsDisplay = true }
 
-    private static let gutterBg    = NSColor(red: 26/255.0, green: 23/255.0, blue: 20/255.0, alpha: 1)
-    private static let borderColor  = NSColor(red: 46/255.0, green: 42/255.0, blue: 38/255.0, alpha: 1)
+    private static let gutterBg = NSColor(red: 30/255.0, green: 27/255.0, blue: 24/255.0, alpha: 1)
     private static let attrs: [NSAttributedString.Key: Any] = [
         .font: NSFont.monospacedSystemFont(ofSize: 11, weight: .regular),
         .foregroundColor: NSColor(red: 92/255.0, green: 85/255.0, blue: 80/255.0, alpha: 1)
@@ -35,13 +34,6 @@ final class LineNumberRulerView: NSRulerView {
     override func drawHashMarksAndLabels(in rect: NSRect) {
         Self.gutterBg.set()
         bounds.fill()
-
-        Self.borderColor.setStroke()
-        let border = NSBezierPath()
-        border.move(to: NSPoint(x: bounds.maxX - 0.5, y: rect.minY))
-        border.line(to: NSPoint(x: bounds.maxX - 0.5, y: rect.maxY))
-        border.lineWidth = 1
-        border.stroke()
 
         guard let textView,
               let layoutManager = textView.layoutManager,
