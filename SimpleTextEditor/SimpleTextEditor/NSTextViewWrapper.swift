@@ -21,9 +21,21 @@ struct NSTextViewWrapper: NSViewRepresentable {
         textView.isContinuousSpellCheckingEnabled = true     // red underlines
         textView.isAutomaticQuoteSubstitutionEnabled = false // keep straight quotes
         textView.isAutomaticDashSubstitutionEnabled = false  // keep double dashes
-        textView.font = NSFont.monospacedSystemFont(ofSize: 14, weight: .regular)
-        textView.textContainerInset = NSSize(width: 8, height: 8)
+        textView.font = NSFont.monospacedSystemFont(ofSize: 15, weight: .regular)
+        textView.textContainerInset = NSSize(width: 24, height: 20)
         textView.delegate = context.coordinator
+
+        // Escritoire warm dark theme
+        let editorBg = NSColor(red: 30/255.0, green: 27/255.0, blue: 24/255.0, alpha: 1)
+        textView.backgroundColor = editorBg
+        textView.drawsBackground = true
+        textView.textColor = NSColor(red: 232/255.0, green: 224/255.0, blue: 213/255.0, alpha: 1)
+        textView.insertionPointColor = NSColor(red: 200/255.0, green: 139/255.0, blue: 58/255.0, alpha: 1)
+        textView.selectedTextAttributes = [
+            .backgroundColor: NSColor(red: 200/255.0, green: 139/255.0, blue: 58/255.0, alpha: 0.28)
+        ]
+        scrollView.backgroundColor = editorBg
+        scrollView.drawsBackground = true
 
         scrollView.hasVerticalRuler = true
         scrollView.rulersVisible = true
