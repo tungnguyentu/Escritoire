@@ -14,7 +14,9 @@ struct NSTextViewWrapper: NSViewRepresentable {
         let scrollView = NSTextView.scrollableTextView()
         let textView = scrollView.documentView as! NSTextView
 
-        textView.isRichText = false                          // plain text only
+        textView.isRichText = true                           // required for colour attributes
+        textView.usesFontPanel = false                       // hide formatting palette
+        textView.usesRuler = false                           // hide ruler bar
         textView.allowsUndo = true                           // Cmd-Z / Cmd-Shift-Z
         textView.usesFindBar = true                          // inline Find bar (Cmd-F)
         textView.isIncrementalSearchingEnabled = true        // live highlighting
@@ -42,6 +44,12 @@ struct NSTextViewWrapper: NSViewRepresentable {
         scrollView.verticalRulerView = LineNumberRulerView(textView: textView, scrollView: scrollView)
 
         textView.string = text
+
+        // Attach syntax highlighter (retained by coordinator)
+        let highlighter = SyntaxHighlighter(textStorage: textView.textStorage!)
+        context.coordinator.highlighter = highlighter
+        highlighter.highlight(storage: textView.textStorage)
+
         return scrollView
     }
 
@@ -62,6 +70,7 @@ struct NSTextViewWrapper: NSViewRepresentable {
 
     final class Coordinator: NSObject, NSTextViewDelegate {
         var parent: NSTextViewWrapper
+        var highlighter: SyntaxHighlighter?
 
         init(_ parent: NSTextViewWrapper) {
             self.parent = parent
