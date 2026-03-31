@@ -6,7 +6,7 @@ final class LineNumberRulerView: NSRulerView {
     init(textView: NSTextView, scrollView: NSScrollView) {
         self.textView = textView
         super.init(scrollView: scrollView, orientation: .verticalRuler)
-        ruleThickness = 52
+        ruleThickness = 40
         textView.postsFrameChangedNotifications = true
         NotificationCenter.default.addObserver(
             self, selector: #selector(invalidate),
@@ -86,7 +86,7 @@ final class LineNumberRulerView: NSRulerView {
     private func drawNumber(_ n: Int, y: CGFloat, height: CGFloat) {
         let s = "\(n)" as NSString
         let size = s.size(withAttributes: Self.attrs)
-        s.draw(at: NSPoint(x: bounds.width - size.width - 8,
+        s.draw(at: NSPoint(x: bounds.width - size.width - 6,
                            y: y + (height - size.height) / 2),
                withAttributes: Self.attrs)
     }
