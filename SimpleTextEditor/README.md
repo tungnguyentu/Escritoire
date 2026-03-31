@@ -30,6 +30,19 @@ In Xcode:
 1. Select the **Escritoire** target → **Signing & Capabilities** → set your **Team** (free Apple ID works)
 2. Press **Cmd+R**
 
+## Installing as a Regular App
+
+You only need Xcode to build once. After that, Escritoire runs like any native app — no Xcode required.
+
+1. Press **Cmd+B** in Xcode to build
+2. Go to **Product → Show Build Folder in Finder**
+3. Open `Products/Debug/` and find `Escritoire.app`
+4. Drag it to your `/Applications` folder
+
+Launch it anytime from **Spotlight** (Cmd+Space → "Escritoire"), Launchpad, or Finder.
+
+When you pull updates and rebuild, just drag the new `Escritoire.app` to `/Applications` again to replace the old one.
+
 ## Stack
 
 | Layer | Technology |
