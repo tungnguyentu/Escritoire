@@ -25,6 +25,10 @@ struct NSTextViewWrapper: NSViewRepresentable {
         textView.textContainerInset = NSSize(width: 8, height: 8)
         textView.delegate = context.coordinator
 
+        scrollView.hasVerticalRuler = true
+        scrollView.rulersVisible = true
+        scrollView.verticalRulerView = LineNumberRulerView(textView: textView, scrollView: scrollView)
+
         textView.string = text
         return scrollView
     }

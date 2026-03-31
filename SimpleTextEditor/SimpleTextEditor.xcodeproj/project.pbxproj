@@ -11,6 +11,7 @@
 		AABB0000000000000000AAD1 /* TextDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB0000000000000000AAC1 /* TextDocument.swift */; };
 		AABB0000000000000000AAD2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB0000000000000000AAC2 /* ContentView.swift */; };
 		AABB0000000000000000AAD3 /* NSTextViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB0000000000000000AAC3 /* NSTextViewWrapper.swift */; };
+		AABB0000000000000000AAD6 /* LineNumberRulerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB0000000000000000AACA /* LineNumberRulerView.swift */; };
 		AABB0000000000000000AAD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AABB0000000000000000AAC5 /* Assets.xcassets */; };
 		AABB0000000000000000AAD5 /* SimpleTextEditorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB0000000000000000AAC9 /* SimpleTextEditorTests.swift */; };
 /* End PBXBuildFile section */
@@ -30,6 +31,7 @@
 		AABB0000000000000000AAC1 /* TextDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDocument.swift; sourceTree = "<group>"; };
 		AABB0000000000000000AAC2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AABB0000000000000000AAC3 /* NSTextViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTextViewWrapper.swift; sourceTree = "<group>"; };
+		AABB0000000000000000AACA /* LineNumberRulerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineNumberRulerView.swift; sourceTree = "<group>"; };
 		AABB0000000000000000AAC4 /* SimpleTextEditor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SimpleTextEditor.entitlements; sourceTree = "<group>"; };
 		AABB0000000000000000AAC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AABB0000000000000000AAC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,7 +58,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AABB0000000000000000AAAB /* root */ = {
+		AABB0000000000000000AAAB = {
 			isa = PBXGroup;
 			children = (
 				AABB0000000000000000AAF0 /* SimpleTextEditor */,
@@ -81,6 +83,7 @@
 				AABB0000000000000000AAC1 /* TextDocument.swift */,
 				AABB0000000000000000AAC2 /* ContentView.swift */,
 				AABB0000000000000000AAC3 /* NSTextViewWrapper.swift */,
+				AABB0000000000000000AACA /* LineNumberRulerView.swift */,
 				AABB0000000000000000AAC4 /* SimpleTextEditor.entitlements */,
 				AABB0000000000000000AAC5 /* Assets.xcassets */,
 				AABB0000000000000000AAC6 /* Info.plist */,
@@ -191,6 +194,7 @@
 				AABB0000000000000000AAD1 /* TextDocument.swift in Sources */,
 				AABB0000000000000000AAD2 /* ContentView.swift in Sources */,
 				AABB0000000000000000AAD3 /* NSTextViewWrapper.swift in Sources */,
+				AABB0000000000000000AAD6 /* LineNumberRulerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +322,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G9Q3QGTJSU;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SimpleTextEditor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -325,7 +330,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.SimpleTextEditor";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.SimpleTextEditor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -341,6 +346,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G9Q3QGTJSU;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SimpleTextEditor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -348,7 +354,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.SimpleTextEditor";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.SimpleTextEditor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -363,7 +369,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.SimpleTextEditorTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.SimpleTextEditorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -379,7 +385,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.SimpleTextEditorTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.SimpleTextEditorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
