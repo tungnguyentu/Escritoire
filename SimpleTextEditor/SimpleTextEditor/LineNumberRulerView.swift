@@ -51,35 +51,58 @@ final class LineNumberRulerView: NSRulerView {
         let visibleRect = scrollView.contentView.bounds
         let insetY = textView.textContainerInset.height
         let string = textView.string as NSString
-        let totalGlyphs = layoutManager.numberOfGlyphs
 
-        if totalGlyphs == 0 {
+        let totalChars = string.length
+
+        if totalChars == 0 {
             drawNumber(1, y: insetY - visibleRect.minY, height: 18)
             return
         }
 
-        let visibleRange = layoutManager.glyphRange(forBoundingRect: visibleRect, in: textContainer)
-        let firstCharIdx = layoutManager.characterIndexForGlyph(at: visibleRange.location)
-        let preceding = string.substring(to: min(firstCharIdx, string.length))
-        var lineNum = preceding.components(separatedBy: "\n").count
+        // Find visible char range via glyphs
+        let visGlyphs = layoutManager.glyphRange(forBoundingRect: visibleRect, in: textContainer)
+        let firstChar = layoutManager.characterIndexForGlyph(at: visGlyphs.location)
 
-        var glyphIdx = visibleRange.location
-        let endGlyph = NSMaxRange(visibleRange)
+        // Walk back to the start of the first visible logical line
+        var lineStart = firstChar
+        while lineStart > 0 && string.character(at: lineStart - 1) != Self.newline {
+            lineStart -= 1
+        }
 
-        while glyphIdx < endGlyph {
+        // Count line number at lineStart
+        var lineNum = string.substring(to: lineStart).components(separatedBy: "\n").count
+
+        // Iterate one logical line at a time using character positions.
+        // This correctly handles empty lines, which have no drawn glyph and
+        // are silently skipped by glyph-range iteration.
+        var charPos = lineStart
+        while charPos < totalChars {
+            let glyph = layoutManager.glyphIndexForCharacter(at: charPos)
             var fragRange = NSRange(location: NSNotFound, length: 0)
-            let fragRect = layoutManager.lineFragmentRect(forGlyphAt: glyphIdx, effectiveRange: &fragRange)
-            guard fragRange.location != NSNotFound, fragRange.length > 0 else { break }
+            let fragRect  = layoutManager.lineFragmentRect(forGlyphAt: glyph, effectiveRange: &fragRange)
 
-            let charIdx = layoutManager.characterIndexForGlyph(at: fragRange.location)
-            let isLineStart = charIdx == 0 || string.character(at: charIdx - 1) == Self.newline
-
-            if isLineStart {
-                drawNumber(lineNum, y: fragRect.minY + insetY - visibleRect.minY, height: fragRect.height)
-                lineNum += 1
+            if fragRange.location != NSNotFound {
+                let y = fragRect.minY + insetY - visibleRect.minY
+                if y > rect.maxY + fragRect.height { break }  // past visible area
+                drawNumber(lineNum, y: y, height: fragRect.height)
             }
+            lineNum += 1
 
-            glyphIdx = NSMaxRange(fragRange)
+            let lr   = string.lineRange(for: NSRange(location: charPos, length: 0))
+            let next = NSMaxRange(lr)
+            if next <= charPos { break }
+            charPos = next
+        }
+
+        // Trailing empty line when the document ends with \n
+        if totalChars > 0 && string.character(at: totalChars - 1) == Self.newline {
+            let extra = layoutManager.extraLineFragmentRect
+            if !extra.isEmpty {
+                let y = extra.minY + insetY - visibleRect.minY
+                if y + extra.height >= rect.minY && y <= rect.maxY + extra.height {
+                    drawNumber(lineNum, y: y, height: extra.height)
+                }
+            }
         }
     }
 
