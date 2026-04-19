@@ -11,6 +11,9 @@ private enum Theme {
 
 struct ContentView: View {
     @Binding var document: TextDocument
+    @State private var currentLine: Int = 1
+    @State private var fontFamilyIndex: Int = 0
+    @State private var editorFontSize: CGFloat = 15
 
     private var lineCount: Int {
         document.text.isEmpty ? 1 : document.text.components(separatedBy: "\n").count
@@ -22,14 +25,78 @@ struct ContentView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            NSTextViewWrapper(text: $document.text)
-                .frame(minWidth: 520, minHeight: 400)
+            // Font toolbar — matches the design's tab-row control area
+            HStack(spacing: 0) {
+                Spacer()
+
+                Picker("Font family", selection: $fontFamilyIndex) {
+                    Text("Mono").tag(0)
+                    Text("Sans").tag(1)
+                    Text("Serif").tag(2)
+                }
+                .pickerStyle(.segmented)
+                .frame(width: 138)
+                .labelsHidden()
+
+                Rectangle()
+                    .fill(Theme.border)
+                    .frame(width: 1, height: 16)
+                    .padding(.horizontal, 10)
+
+                HStack(spacing: 0) {
+                    Button("A−") { editorFontSize = max(10, editorFontSize - 1) }
+                        .buttonStyle(.plain)
+                        .font(.system(size: 11, design: .monospaced))
+                        .foregroundColor(Theme.muted)
+                        .padding(.horizontal, 8)
+                        .frame(height: 22)
+
+                    Rectangle()
+                        .fill(Theme.border)
+                        .frame(width: 1, height: 16)
+
+                    Button("A+") { editorFontSize = min(28, editorFontSize + 1) }
+                        .buttonStyle(.plain)
+                        .font(.system(size: 11, design: .monospaced))
+                        .foregroundColor(Theme.muted)
+                        .padding(.horizontal, 8)
+                        .frame(height: 22)
+                }
+                .overlay(
+                    RoundedRectangle(cornerRadius: 4)
+                        .stroke(Theme.border, lineWidth: 1)
+                )
+            }
+            .padding(.horizontal, 12)
+            .frame(height: 34)
+            .background(Theme.statusBg)
 
             Rectangle()
                 .fill(Theme.border)
                 .frame(height: 1)
 
+            NSTextViewWrapper(
+                text: $document.text,
+                currentLine: $currentLine,
+                fontFamilyIndex: fontFamilyIndex,
+                editorFontSize: editorFontSize
+            )
+            .frame(minWidth: 520, minHeight: 400)
+
+            Rectangle()
+                .fill(Theme.border)
+                .frame(height: 1)
+
+            // Status bar
             HStack(spacing: 0) {
+                HStack(spacing: 4) {
+                    Text("Ln")
+                        .font(.system(size: 11, weight: .regular, design: .monospaced))
+                        .foregroundColor(Theme.muted)
+                    Text("\(currentLine)")
+                        .font(.system(size: 11, weight: .medium, design: .monospaced))
+                        .foregroundColor(Theme.accent)
+                }
                 Spacer()
                 stat(count: lineCount, singular: "line",  plural: "lines")
                 dot

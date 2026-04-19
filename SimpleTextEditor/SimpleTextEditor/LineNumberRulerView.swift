@@ -24,10 +24,16 @@ final class LineNumberRulerView: NSRulerView {
 
     @objc private func invalidate() { needsDisplay = true }
 
+    var currentLine: Int = 1
+
     private static let gutterBg = NSColor(red: 30/255.0, green: 27/255.0, blue: 24/255.0, alpha: 1)
     private static let attrs: [NSAttributedString.Key: Any] = [
         .font: NSFont.monospacedSystemFont(ofSize: 11, weight: .regular),
-        .foregroundColor: NSColor(red: 92/255.0, green: 85/255.0, blue: 80/255.0, alpha: 1)
+        .foregroundColor: NSColor(red: 92/255.0, green: 85/255.0, blue: 80/255.0, alpha: 1),
+    ]
+    private static let activeAttrs: [NSAttributedString.Key: Any] = [
+        .font: NSFont.monospacedSystemFont(ofSize: 11, weight: .semibold),
+        .foregroundColor: NSColor(red: 207/255.0, green: 200/255.0, blue: 192/255.0, alpha: 1),
     ]
     private static let newline: unichar = "\n".utf16.first!
 
@@ -47,7 +53,7 @@ final class LineNumberRulerView: NSRulerView {
         let totalChars = string.length
 
         if totalChars == 0 {
-            drawNumber(1, y: insetY - visibleRect.minY, height: 18)
+            drawNumber(1, y: insetY - visibleRect.minY, height: 18, active: true)
             return
         }
 
@@ -79,7 +85,7 @@ final class LineNumberRulerView: NSRulerView {
 
             if isStart {
                 if y + fragRect.height >= rect.minY {
-                    self.drawNumber(lineNum, y: y, height: fragRect.height)
+                    self.drawNumber(lineNum, y: y, height: fragRect.height, active: lineNum == self.currentLine)
                 }
                 lineNum += 1
             }
@@ -91,17 +97,18 @@ final class LineNumberRulerView: NSRulerView {
             if !extra.isEmpty {
                 let y = extra.minY + insetY - visibleRect.minY
                 if y + extra.height >= rect.minY && y <= rect.maxY + extra.height {
-                    drawNumber(lineNum, y: y, height: extra.height)
+                    drawNumber(lineNum, y: y, height: extra.height, active: lineNum == currentLine)
                 }
             }
         }
     }
 
-    private func drawNumber(_ n: Int, y: CGFloat, height: CGFloat) {
+    private func drawNumber(_ n: Int, y: CGFloat, height: CGFloat, active: Bool = false) {
+        let attrs = active ? Self.activeAttrs : Self.attrs
         let s = "\(n)" as NSString
-        let size = s.size(withAttributes: Self.attrs)
+        let size = s.size(withAttributes: attrs)
         s.draw(at: NSPoint(x: bounds.width - size.width - 6,
                            y: y + (height - size.height) / 2),
-               withAttributes: Self.attrs)
+               withAttributes: attrs)
     }
 }

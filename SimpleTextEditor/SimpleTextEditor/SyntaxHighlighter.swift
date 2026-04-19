@@ -9,7 +9,7 @@ final class SyntaxHighlighter {
     private static let string  = NSColor(red: 143/255.0, green: 184/255.0, blue: 123/255.0, alpha: 1.0)
     private static let number  = NSColor(red: 126/255.0, green: 181/255.0, blue: 200/255.0, alpha: 1.0)
     private static let comment = NSColor(red: 107/255.0, green: 122/255.0, blue: 107/255.0, alpha: 1.0)
-    private static let font    = NSFont.monospacedSystemFont(ofSize: 15, weight: .regular)
+    var font: NSFont = .monospacedSystemFont(ofSize: 15, weight: .regular)
 
     // Compiled regex rules applied in order — later rules win (comments override strings, etc.)
     private static let rules: [(NSRegularExpression, NSColor)] = build()
@@ -76,7 +76,7 @@ final class SyntaxHighlighter {
         let full = NSRange(text.startIndex..., in: text)
         storage.beginEditing()
         storage.addAttribute(.foregroundColor, value: Self.base, range: full)
-        storage.addAttribute(.font,            value: Self.font, range: full)
+        storage.addAttribute(.font,            value: font,      range: full)
         for (regex, color) in Self.rules {
             for match in regex.matches(in: text, range: full) {
                 storage.addAttribute(.foregroundColor, value: color, range: match.range)

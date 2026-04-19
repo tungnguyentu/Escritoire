@@ -9,7 +9,10 @@ A minimal native macOS text editor with a warm dark aesthetic. Built with SwiftU
 - **Paste** — standard system clipboard via the AppKit responder chain
 - **Save / Open** — full `DocumentGroup` integration: Save, Save As, Open Recent, multi-window, unsaved-changes indicator (• in title bar)
 - **Find** — native inline Find bar (Cmd+F) with live highlighting via `NSTextFinder`
-- **Line numbers** — gutter that stays accurate through word-wrap and scrolling
+- **Line numbers** — gutter with active-line emphasis (bold, brighter) that stays accurate through word-wrap and scrolling
+- **Current-line highlight** — subtle warm background stripe follows the cursor
+- **Syntax highlighting** — keywords, strings, numbers, and comments coloured in the warm ochre palette
+- **Font controls** — Mono / Sans / Serif family picker and A− / A+ size stepper in the toolbar
 - **Undo / Redo** — character-level undo stack (Cmd+Z / Cmd+Shift+Z)
 - **Spell check** — continuous red underlines
 
@@ -52,6 +55,8 @@ When you pull updates and rebuild, just drag the new `Escritoire.app` to `/Appli
 | Editor | `NSTextView` via `NSViewRepresentable` |
 | Find bar | `NSTextFinder` (`usesFindBar = true`) |
 | Line numbers | Custom `NSRulerView` subclass |
+| Syntax highlighting | `NSTextStorage` attribute painting, static compiled regexes |
+| Font controls | SwiftUI toolbar strip (Mono/Sans/Serif + A−/A+) |
 | Tests | XCTest (10 unit tests for document model) |
 
 ## Project Layout
@@ -62,7 +67,8 @@ SimpleTextEditor/
 ├── ContentView.swift              # Root view + status bar
 ├── TextDocument.swift             # FileDocument, UTF-8 helpers
 ├── NSTextViewWrapper.swift        # NSViewRepresentable bridge
-├── LineNumberRulerView.swift      # Gutter line numbers
+├── LineNumberRulerView.swift      # Gutter line numbers + active-line emphasis
+├── SyntaxHighlighter.swift        # NSTextStorage keyword/string/comment colouring
 └── Assets.xcassets/               # App icon (all macOS sizes)
 SimpleTextEditorTests/
 └── SimpleTextEditorTests.swift    # TextDocument encode/decode tests
